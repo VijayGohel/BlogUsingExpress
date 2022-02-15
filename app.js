@@ -22,17 +22,17 @@ app.get("/",(req,res)=>{
 
 app.get("/compose",(req,res)=>
 {
-    res.render("compose",{})
+    res.render("compose")
 })
 
 app.get("/contact",(req,res)=>
 {
-    res.render("contact",{})
+    res.render("contact")
 })
 
 app.get("/about",(req,res)=>
 {
-    res.render("about",{})
+    res.render("about")
 })
 
 app.get('/posts/:postTitle', (req, res) => {
@@ -44,8 +44,12 @@ app.get('/posts/:postTitle', (req, res) => {
       if(found != undefined)
         res.render("post",{Post:found});
       else
-        res.send("ERROR 404! post not found");
+        res.render("error404");
   })
+
+ app.get('*', function(req, res){
+    res.render('error404');
+ });
 
 app.post("/", (req,res)=>{
     
