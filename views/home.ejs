@@ -8,8 +8,10 @@
         
         <% todoItems.forEach((Post)=>{ %>
             <article>
-                <h2><%= Post.title %></h2>
-                <p><%= ''+Post.content.substring(0,101)+" ..." %> <a href="/posts/<%=Post.title%>">Read more</a></p>  
+                <h2><a href="/posts/<%=Post._id%>"><%= Post.title %></a></h2>
+                
+                <p><%= Post.content.length>100?(Post.content.substring(0,101)+" ..."):Post.content %> 
+                
             </article>
         <%});%>
         
